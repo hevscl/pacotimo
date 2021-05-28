@@ -149,15 +149,12 @@ export class PacotimoComponent implements OnInit {
     }
 
     const agroupByIataName = (obj, iataName, keyName) => {
-      //Criar variavel que vai receber o agrupamento de objetos com identificador em comum. Ex: Iata
       var objItemsWithSameIataName = []
 
-      // Criar filtro que vai trazer somente os objetos que tem o nome que queremos. Ex: "BSB"
       let objFiltered = obj.filter(currentObj => {
         return currentObj[keyName] === iataName
       })
 
-      // Colocar objetos que deram match com o iataName solicitado
       objFiltered ? objItemsWithSameIataName.push(objFiltered) : []
       return objItemsWithSameIataName
     }
@@ -181,7 +178,11 @@ export class PacotimoComponent implements OnInit {
     cities.forEach(city => {
       city.bestFlight = bestPrice(agroupByIataName(flights, city.id, 'arrivalAirport'), 'price')
       city.bestHotel = bestPrice(agroupByIataName(hotels, city.id, 'iata'), 'pricePerNight')
-      city.bestPackagePrice = city.bestFlight && city.bestHotel ? city.bestFlight.price + city.bestHotel.pricePerNight : 0
+
+      var days = city.bestFlight ? Math.floor(((city.bestFlight.inboundDate - city.bestFlight.outboundDate)/1000)/(3600*24))  : 0
+
+      city.bestPackagePrice = city.bestFlight && city.bestHotel ? city.bestFlight.price + (days ? city.bestHotel.pricePerNight*days : city.bestHotel.pricePerNight) : 0
+
       fullPackage.push(city)
     });
 
