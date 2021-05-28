@@ -4,3 +4,25 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+.card{
+    max-width: 350px;
+    margin: 10px;
+    border: 0;
+}
+
+.card-img-overlay{
+    padding: 10px;
+    height: 70px; 
+    margin-top: 40%; 
+    background: rgba(17, 17, 17, 0.5)
+}
+
+.card-title{
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.small{
+    font-size: 13px;
+    margin-bottom: 0;
+}

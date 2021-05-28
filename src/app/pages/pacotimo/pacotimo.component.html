@@ -39,5 +39,31 @@
             </form>
         </div>
 
+        <div class="row">
+            <div *ngFor="let package of finalPackages">
+                <div class="col-sm">
+                    <div class="card text-white float-left">
+                        <img src={{package.imageUrl}} class="card-img" height="100%">
+                        <div class=" d-flex align-items-end " style="height: 100%; ">
+                          <div class="card-img-overlay d-flex align-items-end " >
+                            <div class="col-sm-6">
+                                <h5 class="card-title">{{package.city}}</h5>
+                                <p class="card-text" style="font-weight: bold; ">R${{package.bestPackagePrice}}</p>
+                            </div>
+                            <div class="col-sm">
+                                <p class="card-text small d-flex justify-content-end">ida</p>
+                                <p class="card-text small d-flex justify-content-end">{{package.bestFlight ? (package.bestFlight.outboundDate | date:'dd/MM/yyyy') : "-"}}</p>
+                            </div>
+                            <div class="col-sm">
+                                <p class="card-text small d-flex justify-content-end">volta</p>
+                                <p class="card-text small d-flex justify-content-end">{{package.bestFlight ? (package.bestFlight.inboundDate | date:'dd/MM/yyyy') : "-"}}</p>
+                            </div>
+                        </div>  
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
