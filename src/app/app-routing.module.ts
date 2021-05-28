@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PacotimoComponent } from './pages/pacotimo/pacotimo.component';
 
 const routes: Routes = [
-  { path: 'home', component: PacotimoComponent },
+  { path: '', component: PacotimoComponent },
 ];
 
 @NgModule({
